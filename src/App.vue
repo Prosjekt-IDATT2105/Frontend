@@ -7,6 +7,7 @@
 </template>
 
 <style>
+
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;

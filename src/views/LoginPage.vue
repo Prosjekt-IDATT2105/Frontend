@@ -1,6 +1,7 @@
 <template>
-  <div class="container" @submit.prevent="handleClickSignin">
+  <div class="container">
     <h2 id="title">LOGIN</h2>
+    <h2 class="logInStatus" id="logInHeader">Please log in:)</h2>
     <BaseInput
       id="inpUsername"
       v-model="event.username"
@@ -39,44 +40,76 @@ export default {
     };
   },
   methods: {
-    async handleClickSignin() {
-      const loginRequest = { username: this.username, password: this.password };
 
-      alert("hei")
+    async handleClickSignin () {
+      const loginRequest = {
+        username: this.event.username,
+        password: this.event.password,
+      };
       const loginResponse = await doLogin(loginRequest);
-      if (loginResponse.data === "Wrong password") {
-        alert(loginResponse);
-        alert("funnet");
-      } else if (loginResponse.data === "User not found") {
-        alert("ikke funnet");
-        this.showSignUpButton = true;
-        document.getElementById("logInHeader").innerHTML = loginResponse.data;
+      if (loginResponse === "Wrong password") {
+        document.getElementById("logInHeader").innerHTML = loginResponse;
+      } else if (loginResponse === "User not found") {
+        document.getElementById("logInHeader").innerHTML = loginResponse;
       } else {
-        this.$store.commit("SET_TOKEN", loginResponse);
-        this.$store.commit("SET_USERNAME", this.username);
-        alert("siste else-setning");
+        this.$store.commit("SET_TOKEN", loginResponse.data);
+        this.$store.commit("SET_USERNAME", this.event.username);
+        await this.$router.push("/")
       }
     },
   },
 };
 </script>
 <style scoped>
+
 .container {
-  display: grid;
-  justify-content: center;
-  margin: 40px;
+  text-align: center;
+  color: #f6f7eb;
+  width: 50%;
+  margin: auto;
+
 }
-#title {
-  font-size: x-large;
-  font-weight: bold;
-  margin-bottom: 20px;
+.logInStatus {
+  color: #f6f7eb;
 }
 
-#inpUsername,
-#inpPassword {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: 20px;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+button {
+  background: #d8dca7;
+  border-radius: 10px;
+  border: none;
+  padding: 0;
+  outline-offset: 4px;
+}
+
+.button {
+  display: block;
+  padding: 15px 42px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background: #f6f7eb;
+  color: black;
+  transform: translateY(-4px);
+  font-weight: bolder;
+  will-change: transform;
+  transition: transform 150ms;
+}
+
+button:hover .button {
+  cursor: pointer;
+  transform: translateY(-6px);
+}
+
+button:active .button{
+  transform: translateY(-2px);
+}
+
 </style>
