@@ -73,35 +73,32 @@ export default {
   color: #f6f7eb;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-button {
-  background: #d8dca7;
-  border-radius: 10px;
-  border: none;
-  padding: 0;
-  outline-offset: 4px;
-}
-
 .button {
-  display: block;
-  padding: 15px 42px;
-  border-radius: 10px;
-  font-size: 1.5rem;
-  background: #f6f7eb;
-  color: black;
-  transform: translateY(-4px);
-  font-weight: bolder;
-  will-change: transform;
-  transition: transform 150ms;
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 10px;
+  margin-top: 30px;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 350px;
 }
+
+
 
 button:hover .button {
   cursor: pointer;

@@ -6,8 +6,8 @@
     <input
       class="field"
       v-bind="{
-      ...$attrs,
-      onInput: updateValue,
+        ...$attrs,
+        onInput: updateValue,
       }"
       :value="modelValue"
       :placeholder="label"
@@ -19,7 +19,6 @@
       {{ error }}
     </div>
   </div>
-  
 </template>
 
 <script>
@@ -52,7 +51,22 @@ export default {
 </script>
 <style scoped>
 .container {
-  display: block;
-  margin: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin: 20px 10px 0 0;
+  text-align: left;
+  font-size: 120%;
+}
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  width: 340px;
+  position: relative;
+}
+input:invalid {
+  border-color: red;
 }
 </style>
