@@ -3,7 +3,8 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/login">Login</router-link> |
     <router-link to="/student">Student</router-link> |
-    <router-link to="/studass">Studass</router-link>
+    <router-link to="/studass">Studass</router-link> |
+    <router-link to="/lecturer">Lecturer</router-link>
   </div>
   <router-view />
 </template>

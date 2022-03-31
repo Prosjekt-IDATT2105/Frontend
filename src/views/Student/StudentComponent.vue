@@ -1,8 +1,8 @@
 <template>
     <div class="studentbox-container">
         <div class="information">
-            <h4>Emnenavn</h4>
-            <h5>Emnekode</h5>
+            <h3>Emnenavn</h3>
+            <h4>Emnekode</h4>
         </div>
         <div class="buttons">
             <button id="add-que">Bli med i køen</button>
@@ -21,9 +21,10 @@
   justify-content: center;
   margin: 15px;
 }
-.infromation {
+.infromation, h3, h4{
     flex-direction: column;
     justify-content: center;
+    color: white;
 }
 .buttons {
     display: flex;

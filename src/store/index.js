@@ -42,6 +42,9 @@ export default createStore({
     GET_IsLoggedIn(state) {
       return state.isLoggedIn;
     },
+    GET_USERID(state) {
+      return state.user_id;
+    }
   },
   actions: {},
   modules: {},
