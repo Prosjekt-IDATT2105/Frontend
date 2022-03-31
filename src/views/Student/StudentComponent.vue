@@ -11,22 +11,29 @@
     </div>
 </template>
 <style scoped>
-.studentbox-container {
+.studentbox-container { 
+  display: flex;
   flex-direction: column;
-  width: 100%;
-  min-height: rem(100);
-  border: rem(1) solid white;
+  width: 350px;
+  min-height: 20px;
+  border: 2px solid white;
   align-items: center;
-  justify-content: space-between;
-  padding: 30px;
+  justify-content: center;
+  margin: 15px;
 }
 .infromation {
-    flex-direction: column-reverse;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 }
 .buttons {
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+#add-que {
+    margin-right: 50px;
+}
+#ovinger {
+    margin-left: 50px;
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
     <div class="container"> 
-        <div class="buttons-top">
-            <button>Aktive emne</button>
-            <button>Arkiverte Emner</button>
+        <div class="header-top">
+            <h3>Aktive emne</h3>
+            <h3>Arkiverte Emner</h3>
         </div>
         <div class="header">
-            <div class="left-content">
+            <div id="left-content">
             <h3>Aktive køer</h3>
         </div>
-        <div class="right-content">
+        <div id="right-content">
             <h3>Inaktive køer</h3>
         </div>
         </div>
@@ -28,15 +28,21 @@ export default {
 <style scoped>
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
-#studentbox {
-    border: 2px solid white;
-    width: 30%;
+.header-top {
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 0 160px 0 160px;
+    background-color: bisque;
 }
 .header {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 160px 0 160px;
+    background-color: antiquewhite;
 }
 .left_content {
   width: 100%;
