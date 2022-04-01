@@ -5,11 +5,20 @@
             <h4>Emnekode</h4>
         </div>
         <div class="buttons">
-            <button id="add-que">Bli med i køen</button>
+            <button @click="onClick()">Bli med i køen</button>
             <button id="ovinger">Vis øvinger</button>
         </div>
     </div>
 </template>
+<script>
+export default {
+    methods: {
+       async onclick() {
+            await this.$router.push("/toque")
+        }
+    }
+}
+</script>
 <style scoped>
 .studentbox-container { 
   display: flex;

@@ -1,13 +1,5 @@
 <template>
     <div class="container">
-        <div class="header">
-            <div id="left-content">
-            <h3>Aktive køer</h3>
-        </div>
-        <div id="right-content">
-            <h3>Inaktive køer</h3>
-        </div>
-        </div>
         <div id="studentbox">
             <StudentComponent/>
         </div>

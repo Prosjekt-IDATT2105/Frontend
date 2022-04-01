@@ -33,7 +33,6 @@ export default {
       event: {
         username: "",
         password: "",
-        message: "Looks like you need to be registered!",
       },
       loginFailed: false,
       loginStatus: "",
@@ -52,8 +51,17 @@ export default {
       } else if (loginResponse === "User not found") {
         document.getElementById("logInHeader").innerHTML = loginResponse;
       } else {
-        this.$store.commit("SET_TOKEN", loginResponse.data);
+        this.$store.commit("SET_TOKEN", loginResponse);
         this.$store.commit("SET_USERNAME", this.event.username);
+        this.$store.commit("SET_ROLENAME", loginResponse);
+        console.log(loginResponse);
+        /**if(this.rolename === loginResponse.data["ROLE_FORELESER"]) {
+          await this.$router.push("/lecturer");
+        }else if (this.$store.rolename == "ROLE_STUDASS") {
+          await this.$router.push("/studass");
+        } else {
+          await this.$router.push("/student");
+        }*/
         await this.$router.push("/")
       }
     },
