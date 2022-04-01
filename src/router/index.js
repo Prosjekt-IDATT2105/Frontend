@@ -4,6 +4,7 @@ import LoginPage from "@/views/LoginPage.vue"
 import StudentPage from "../views/Student/StudentPage.vue"
 import StudassPage from "../views/Studass/StudassPage.vue";
 import Lecturer from "../views/Admin/Lecturer.vue"
+import MeldInnIQS from "../views/Student/MeldInnIQS.vue"
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: "/lecturer",
     name: Lecturer,
     component: Lecturer,
+  },
+  {
+    path: "/toque",
+    name: MeldInnIQS,
+    component: MeldInnIQS,
   }
 ];
 
