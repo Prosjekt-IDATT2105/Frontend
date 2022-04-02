@@ -20,6 +20,8 @@ export default createStore({
       '4',
       '5',
     ],
+    type: "",
+    oving: "",
 
   },
   mutations: {
@@ -46,6 +48,13 @@ export default createStore({
       state.isLoggedIn = false;
       state.calculationLog = [];
     },
+    SET_TYPE(state, type) {
+      state.type = type;
+    },
+    SET_OVING(state, oving) {
+      state.oving = oving;
+    }
+  
   },
   getters: {
     GET_TOKEN(state) {
@@ -64,6 +73,12 @@ export default createStore({
       return state.user_id;
     },
     GET_ROLENAME(state) {
+      return state.rolename;
+    },
+    GET_TYPE(state) {
+      return state.rolename;
+    },
+    GET_OVING(state) {
       return state.rolename;
     }
   },
