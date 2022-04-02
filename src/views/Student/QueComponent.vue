@@ -1,1 +1,5 @@
-<template></template>
+<template>
+    <div>
+        <h1>hei</h1>
+    </div>
+</template>

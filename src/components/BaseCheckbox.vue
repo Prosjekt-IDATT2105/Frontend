@@ -48,3 +48,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+input, label {
+  justify-content: space-between;
+}
+</style>

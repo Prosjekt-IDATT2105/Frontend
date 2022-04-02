@@ -5,6 +5,7 @@ import StudentPage from "../views/Student/StudentPage.vue"
 import StudassPage from "../views/Studass/StudassPage.vue";
 import Lecturer from "../views/Admin/Lecturer.vue"
 import MeldInnIQS from "../views/Student/MeldInnIQS.vue"
+import QueComponent from "../views/Student/QueComponent.vue"
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: "/toque",
     name: MeldInnIQS,
     component: MeldInnIQS,
+  },
+  {
+    path: "/que",
+    name: QueComponent,
+    component: QueComponent,
   }
 ];
 

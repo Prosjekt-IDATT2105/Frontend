@@ -22,6 +22,7 @@
 <script>
 import BaseInput from "@/components/BaseInput.vue";
 import { doLogin } from "@/utils/apiutil";
+import jwt_decode from "jwt-decode";
 
 export default {
   name: "LoginPage",
@@ -53,16 +54,16 @@ export default {
       } else {
         this.$store.commit("SET_TOKEN", loginResponse);
         this.$store.commit("SET_USERNAME", this.event.username);
-        this.$store.commit("SET_ROLENAME", loginResponse);
-        console.log(loginResponse);
-        /**if(this.rolename === loginResponse.data["ROLE_FORELESER"]) {
+        let token = this.$store.state.token;
+        let decoded = jwt_decode(token);
+        this.$store.commit("SET_ROLENAME", decoded.name);
+        if('[ROLE_FORELESER]' === this.$store.state.rolename) {
           await this.$router.push("/lecturer");
-        }else if (this.$store.rolename == "ROLE_STUDASS") {
+        }else if (this.$store.state.rolename === '[ROLE_STUDENT, ROLE_STUDASS]') {
           await this.$router.push("/studass");
         } else {
           await this.$router.push("/student");
-        }*/
-        await this.$router.push("/")
+        }
       }
     },
   },
