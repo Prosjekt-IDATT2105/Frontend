@@ -14,7 +14,7 @@
             label="Table"
             :options="table"/>
         </div>
-        <div class="Checkbox">
+        <div class="Type" @click="set">
             <base-checkbox
             id="Godkjenning"
             label="Godkjenning"
@@ -24,25 +24,27 @@
             label="Hjelp"
             />
         </div>
-        <div class="Checkbox">
+        <div class="Oving">
             <base-checkbox
-            id="Øving1"
+            class="Oving"
             label="Øving 1"
             />
             <base-checkbox
-            id="Øving2"
+            class="Oving"
             label="Øving 2"
+            value="to"
+            @click="set"
             />
             <base-checkbox
-            id="Øving3"
+            class="Oving"
             label="Øving 3"
             />
             <base-checkbox
-            id="Øving4"
+            class="Oving"
             label="Øving 4"
             />
             <base-checkbox
-            id="øving5"
+            class="Oving"
             label="Øving 5"
             />
         </div>
@@ -66,9 +68,8 @@ export default {
             building: this.$store.state.building,
             classroom: this.$store.state.classroom,
             table: this.$store.state.table,
-            type: "hei",
-            oving: "hei",
-            username: "hei",
+            type: document.querySelectorAll('.oving:checked').val(),
+            username: this.$store.state.username,
             config: {
                 headers: {
                 Authorization: "Bearer " + this.$store.getters.GET_TOKEN,
@@ -82,10 +83,10 @@ export default {
                 .post(
                     "/queue", null, {
                         params: {
-                            location: "hei",
-                            type: this.type,
+                            location: this.$store.state.building + this.$store.state.classroom + this.$store.state.table,
+                            type: this.$store.state.type,
                             oving: this.oving,
-                            username: this.username,
+                            username: this.$store.state.username,
                         }  
             
                     },
@@ -94,8 +95,12 @@ export default {
                 .then((response) => {
                     response.data;
                 });
-            await this.$router.push("/");    
+            await this.$router.push("/que");    
         },
+        set() {
+            this.$store.commit("SET_TYPE", this.type)
+            this.$store.commit("SET_OVING", this.oving)
+        }
     }
 }
 </script>
