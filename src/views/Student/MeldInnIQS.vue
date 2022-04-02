@@ -54,7 +54,8 @@
 <script>
 import BaseCheckbox from "@/components/BaseCheckbox";
 import BaseSelect from "@/components/BaseSelect";
-import { doSendToQue } from "@/utils/apiutil";
+import axios from "axios";
+
 export default {
     components: {
         BaseCheckbox,
@@ -65,22 +66,36 @@ export default {
             building: this.$store.state.building,
             classroom: this.$store.state.classroom,
             table: this.$store.state.table,
-            type: this.Godkjenning || this.hjelp,
-            oving: this.oving1 || this.oving2 || this.oving3 || this.oving4 || this.oving5,
-            username: this.$store.state.username,
+            type: "hei",
+            oving: "hei",
+            username: "hei",
+            config: {
+                headers: {
+                Authorization: "Bearer " + this.$store.getters.GET_TOKEN,
+                },
+            },
         }
     },
     methods: {
         async toQue() {
-            const informationRequest = {
-                location: this.table + this.classroom + this.building,
-                type: this.type,
-                oving: this.oving,
-                username: this.username,
-            };
-            await doSendToQue(informationRequest)
-            await this.$router.push("/que")
-        }
+            await axios
+                .post(
+                    "/queue", null, {
+                        params: {
+                            location: "hei",
+                            type: this.type,
+                            oving: this.oving,
+                            username: this.username,
+                        }  
+            
+                    },
+                    this.config
+                )
+                .then((response) => {
+                    response.data;
+                });
+            await this.$router.push("/");    
+        },
     }
 }
 </script>
