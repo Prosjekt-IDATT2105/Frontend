@@ -1,5 +1,8 @@
+//imports:
 import axios from "axios";
 
+/**Metode som sender brukernavnet og passordet brukeren skriver inn for å sjekke om det stemmer 
+ * med noe som ligger i databasen og får tilbake respons fra backend*/
 export function doLogin(loginRequest) {
     return axios
         .post(`/login`, null, {

@@ -1,3 +1,6 @@
+<!--Komponent for å lage en gjennbrukbart avkrysningsbokser som er lik
+for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
+mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
   <input
     v-bind="$attrs"
@@ -22,6 +25,7 @@
 </template>
 
 <script>
+//Imports:
 import SetupFormComponent from "@/features/SetupFormComponent.js";
 import UniqueID from "@/features/UniqueID.js";
 export default {
@@ -48,6 +52,7 @@ export default {
   },
 };
 </script>
+<!--Styling for BaseCheckbox -->
 <style scoped>
 input, label {
   justify-content: space-between;

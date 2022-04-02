@@ -1,7 +1,11 @@
+<!-- Siden hvor brukeren kan logge inn på systemet. Når brukeren har fylt ut brukernavn og passord
+og det er sjekket opp mot databasen mottar brukeren en token som blir lagret til senere bruk.-->
 <template>
   <div class="container">
     <h2 id="title">LOGIN</h2>
     <h2 class="logInStatus" id="logInHeader">Please log in:)</h2>
+    <!-- Tar inn komponenten BaseInput hvor første er fletet hvor brukeren skriver brukernavn 
+    og det andre fletet for at brukeren skal kunne skrive inn passord-->
     <BaseInput
       id="inpUsername"
       v-model="event.username"
@@ -14,12 +18,15 @@
       label="Password"
       type="password"
     />
+    <!-- Submit-knapp hvor brukernavnet og passordet til bruekeren blir sendt til backend. Om brukernavn og passord er gyldig
+    vil brukeren bli dirigert til riktig side ut fra hvilken rolle de har-->
     <button id="btnSubmit" class="button" @click="handleClickSignin">
       Login
     </button>
   </div>
 </template>
 <script>
+//Imports:
 import BaseInput from "@/components/BaseInput.vue";
 import { doLogin } from "@/utils/apiutil";
 import jwt_decode from "jwt-decode";
@@ -40,7 +47,14 @@ export default {
     };
   },
   methods: {
-
+    /**Metoden som håndeterer innloggingen til brukeren. 
+     * Først vil brukernavnet og passordet bli sendt til databasen og jskket opp mot databasen.
+     * Om brukernavnet er feil vil brukeren få tilbakemelding om at det ikke stemmer med noen i databasen, 
+     * hvis passordet ikke er riktig vil brukeren bli varslet om det. Om brukernavn og passordet stemmer 
+     * vil det bli sendt en token som blir lagret til senere bruk. Tokenen blir dekryptert for å hente ut
+     * og lagret hvilken rolle brukeren har. Ut fra hvilken rolle brukeren har vil de bli dirigert til siden
+     * de har rettigheter til å være på. 
+     */
     async handleClickSignin () {
       const loginRequest = {
         username: this.event.username,
@@ -70,8 +84,8 @@ export default {
   },
 };
 </script>
+<!-- Styling for Login-siden-->
 <style scoped>
-
 .container {
   text-align: center;
   color: #f6f7eb;
@@ -82,7 +96,6 @@ export default {
 .logInStatus {
   color: #f6f7eb;
 }
-
 .button {
   background-color: #FFFFFF;
   border: 1px solid #222222;
@@ -107,14 +120,10 @@ export default {
   -webkit-user-select: none;
   width: 350px;
 }
-
-
-
 button:hover .button {
   cursor: pointer;
   transform: translateY(-6px);
 }
-
 button:active .button{
   transform: translateY(-2px);
 }

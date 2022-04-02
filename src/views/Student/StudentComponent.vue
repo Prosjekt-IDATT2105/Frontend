@@ -1,3 +1,7 @@
+<!--Inoformasjonsboksen for emnene en student har.
+Den består av informasjon om emnenavn og emnekode.
+Det er også laget en knapp for å stille seg i kø og 
+en for å vise øvingene man har -->
 <template>
     <div class="studentbox-container">
         <div class="information">
@@ -13,12 +17,15 @@
 <script>
 export default {
     methods: {
+       /**Metode for å sende studentene til siden hvor de kan registrere seg for
+        * å enten få hjelp eller få godkjent en øving */ 
        async onClick() {
            await this.$router.push("/toque");
         }
     }
 }
 </script>
+<!--Styling for StudentComponent -->
 <style scoped>
 .studentbox-container { 
   display: flex;

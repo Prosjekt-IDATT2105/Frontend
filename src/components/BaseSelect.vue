@@ -1,3 +1,6 @@
+<!--Komponent for å lage en gjennbrukbar dropdown meny som er lik
+for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
+mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
   <label :for="uuid" v-if="label">{{ label }}</label>
   <select
@@ -17,8 +20,8 @@
     </option>
   </select>
 </template>
-
 <script>
+//Imports:
 import SetupFormComponent from "@/features/SetupFormComponent.js";
 import UniqueID from "@/features/UniqueID.js";
 export default {

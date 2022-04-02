@@ -1,3 +1,4 @@
+<!--Komponeten for å lage en standard feilmelding til brukeren om det er nødvendig -->
 <template>
   <p
     aria-live="assertive"
@@ -7,7 +8,6 @@
     <slot />
   </p>
 </template>
-
 <script>
 export default {
   props: {

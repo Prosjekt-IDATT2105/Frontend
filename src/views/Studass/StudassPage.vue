@@ -1,5 +1,11 @@
+<!--Siden som brukeren blir sendt til hvis rollen deres er Studass.
+En studentassisten vil også ha tilgang til studentsiden ettersom de også er studenter i andre 
+emner enn de er studentassistent i. De vil ha mulighet til å enten ha studentvisning eller studentassistentvisning-->
 <template>
     <div class="conatiner">
+        <!--Headere som brukeren kan trykke på for å bytte mellom 
+        studentvisning eller studentassistentvisning.
+        Henter inn StudentPage og StudassComponent ettersom hva brukeren ønsker -->
         <div class="header-top">
             <h3 @click="showDetailsStudent()">Student</h3>
             <h3 @click="showDetailsStudass()">Studass</h3>
@@ -13,6 +19,7 @@
     </div>
 </template>
 <script>
+//Imports:
 import StudentPage from "../Student/StudentPage.vue";
 import StudassComponent from "../Studass/StudassComponent.vue"
 export default {
@@ -27,10 +34,16 @@ export default {
         }
     },
     methods: {
+        /**Metode for at studentassistenten skal få studentvisning.
+        */
         showDetailsStudent() {
             this.openStudent = true;
             this.openStudass = false;
         },
+        /**Metode for å vise brukeren studentassistent siden når de trykker på headeren for studass.
+         * Her er studentassistentvisning satt som default verdi så denne siden vil automatisk vises når
+         * brukeren logger på.
+        */
         showDetailsStudass() {
             this.openStudass = true;
             this.openStudent = false;
@@ -38,6 +51,7 @@ export default {
     }
 }
 </script>
+<!--Styling for studentassistent siden -->
 <style scoped>
 .container {
     display: flex;
