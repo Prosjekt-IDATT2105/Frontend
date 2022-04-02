@@ -50,11 +50,4 @@ export default {
     padding: 0 160px 0 160px;
     background-color: bisque;
 }
-
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
-  .container, h3, h4 {
-    width: 100%;
-  }
-}
 </style>

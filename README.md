@@ -8,14 +8,14 @@ To get started developing further on QS yourself, you need to use Git to clone t
 
 Requirements
 
-Git
-Vue
-IDE of choice
+<br>Git</b>
+<b>Vue</b>
+<b>IDE of choice</b>
 
 
 Cloning
-Using SSH: git@github.com:Prosjekt-IDATT2105/Frontend.git
-Using HTTPS: https://github.com/Prosjekt-IDATT2105/Frontend.git
+<b>Using SSH: git@github.com:Prosjekt-IDATT2105/Frontend.git</b>
+<b>Using HTTPS: https://github.com/Prosjekt-IDATT2105/Frontend.git</b>
 
 How to run QS:
 ## Project setup

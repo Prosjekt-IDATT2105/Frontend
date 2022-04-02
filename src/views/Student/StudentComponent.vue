@@ -5,7 +5,7 @@
             <h4>Emnekode</h4>
         </div>
         <div class="buttons">
-            <button @click="onClick()">Bli med i køen</button>
+            <button @click="onClick">Bli med i køen</button>
             <button id="ovinger">Vis øvinger</button>
         </div>
     </div>
@@ -13,8 +13,8 @@
 <script>
 export default {
     methods: {
-       async onclick() {
-            await this.$router.push("/toque")
+       async onClick() {
+           await this.$router.push("/toque");
         }
     }
 }

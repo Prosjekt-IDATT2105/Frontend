@@ -27,7 +27,7 @@
         <div class="Checkbox">
             <base-checkbox
             id="Øving1"
-            label="Øving 2"
+            label="Øving 1"
             />
             <base-checkbox
             id="Øving2"
@@ -46,11 +46,15 @@
             label="Øving 5"
             />
         </div>
+        <div class="button">
+            <button @click="toQue">Meld inn i kø</button>
+        </div>
     </div>
 </template>
 <script>
 import BaseCheckbox from "@/components/BaseCheckbox";
 import BaseSelect from "@/components/BaseSelect";
+import { doSendToQue } from "@/utils/apiutil";
 export default {
     components: {
         BaseCheckbox,
@@ -61,18 +65,41 @@ export default {
             building: this.$store.state.building,
             classroom: this.$store.state.classroom,
             table: this.$store.state.table,
+            type: this.Godkjenning || this.hjelp,
+            oving: this.oving1 || this.oving2 || this.oving3 || this.oving4 || this.oving5,
+            username: this.$store.state.username,
+        }
+    },
+    methods: {
+        async toQue() {
+            const informationRequest = {
+                location: this.table + this.classroom + this.building,
+                type: this.type,
+                oving: this.oving,
+                username: this.username,
+            };
+            await doSendToQue(informationRequest)
+            await this.$router.push("/que")
         }
     }
 }
 </script>
 <style scoped>
 .conatiner {
-  text-align: center;
   color: #f6f7eb;
-  width: 50%;
+  width: 100%;
   margin: auto;
+  justify-content: center;
 }
-.checkbox {
+.checkbox{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     text-decoration-color: white;
+    padding: 20px;
+    align-content: center;
+}
+.location {
+    padding: 20px;
 }
 </style>
