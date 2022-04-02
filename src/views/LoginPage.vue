@@ -56,7 +56,8 @@ export default {
         this.$store.commit("SET_USERNAME", this.event.username);
         let token = this.$store.state.token;
         let decoded = jwt_decode(token);
-        this.$store.commit("SET_ROLENAME", decoded.name);
+        console.log(decoded)
+        this.$store.commit("SET_ROLENAME", decoded.rolename);
         if('[ROLE_FORELESER]' === this.$store.state.rolename) {
           await this.$router.push("/lecturer");
         }else if (this.$store.state.rolename === '[ROLE_STUDENT, ROLE_STUDASS]') {
