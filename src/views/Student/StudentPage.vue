@@ -1,5 +1,13 @@
+<!-- Siden brukeren blir sendt til hvis rollen til som ble sendt med token er student
+Her får studenten oversikt over sikt over emner de har dette semesteret og emner de har hatt tidligere. 
+Under aktive emner vil studenten kunne få oversikt over emnene de har og om køene til disse emnene er åpne
+og oversikt over øvingene i det aktuelle emnet-->
 <template>
     <div class="container"> 
+        <!-- Headers som som studenten kan bruke for å se om de ønsker å se på tidligere emner
+        eller om de ønsker å se på aktive emner. Hvis brukeren trykker på Aktive emner vil de få
+        oversikt over sine aktive mener og om de trykker på arkiverte emner får vil de få oversikt over 
+        arkiverte mener. Henter inn sidene AkiveEmner og ArkiverteEmner-->
         <div class="header-top">
             <h3 @click="showDetailsAktive()">Aktive Emner</h3>
             <h3 @click="showDetailsArkiverte()">Arkiverte Emner</h3>
@@ -13,6 +21,7 @@
     </div>
 </template>
 <script>
+//Imports:
 import AktiveEmner from "../Student/AktiveEmner.vue";
 import ArkiverteEmner from "../Student/ArkiverteEmner.vue";
 export default {
@@ -27,10 +36,15 @@ export default {
         }
     },
     methods: {
+        /**Metode for at studenten skal få oversikt over sine aktive emner om de trykker på headeren for 
+         * aktive emner. Her er aktive emner satt som default verdi så denne siden vil automatisk vises når
+         * brukeren logger på.
+        */
         showDetailsAktive() {
             this.openAktiveEmner = true;
             this.openArkiverteEmner = false;
         },
+        /**Metode for å vise brukeren info om arkiverte emner når de trykker på headeren for arkiverte emner*/
         showDetailsArkiverte() {
             this.openArkiverteEmner = true;
             this.openAktiveEmner = false;
@@ -38,6 +52,7 @@ export default {
     }
 }
 </script>
+<!--Styling for StudentPage visning-->
 <style scoped>
 .container {
     display: flex;

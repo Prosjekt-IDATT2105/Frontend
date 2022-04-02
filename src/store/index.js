@@ -1,5 +1,9 @@
+//Imports:
 import { createStore } from "vuex";
 
+/**Bruker vuex for å lagre input fra brukeren og backend. Blant annet tokenen
+ * som blir laget når brukeren logger på
+*/
 export default createStore({
   state: {
     isFormSent: false,

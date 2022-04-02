@@ -1,3 +1,6 @@
+<!--Komponent for å lage en gjennbrukbart inputfelt som er lik
+for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
+mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
   <div class="container">
     <label v-if="label" :for="uuid">
@@ -20,8 +23,8 @@
     </div>
   </div>
 </template>
-
 <script>
+//Imports:
 import SetupFormComponent from "@/features/SetupFormComponent.js";
 import UniqueID from "@/features/UniqueID.js";
 export default {
@@ -49,6 +52,7 @@ export default {
   },
 };
 </script>
+<!--Styling for BaseInput -->
 <style scoped>
 .container {
   display: flex;
