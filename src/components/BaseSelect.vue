@@ -2,23 +2,25 @@
 for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
 mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
-  <label :for="uuid" v-if="label">{{ label }}</label>
-  <select
+  <div class="container">
+    <label :for="uuid" v-if="label">{{ label }}</label>
+    <select
     v-bind="$attrs"
     :id="uuid"
     :value="modelValue"
     @change="$emit('update:modelValue', $event.target.value)"
     class="field"
-  >
-    <option
+    >
+      <option
       v-for="option in options"
       :value="option"
       :key="option"
       :selected="option === modelValue"
-    >
-      {{ option }}
-    </option>
-  </select>
+      >
+        {{ option }}
+      </option>
+    </select>
+  </div>
 </template>
 <script>
 //Imports:
@@ -49,3 +51,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.container {
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+.container label {
+  margin: 5px;
+}
+</style>

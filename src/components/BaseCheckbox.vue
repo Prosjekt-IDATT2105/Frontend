@@ -2,7 +2,8 @@
 for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
 mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
-  <input
+  <div class="container">
+    <input
     v-bind="$attrs"
     :checked="modelValue"
     type="checkbox"
@@ -11,17 +12,18 @@ mer ryddig og ha en standar så alt blir likt gjennom hele -->
     class="field"
     :aria-describedby="error ? `${uuid}-error` : null"
     :aria-invalid="error ? true : null"
-  />
-  <label :for="uuid" v-if="label">
-    {{ label }}
-  </label>
-  <p
+    />
+    <label :for="uuid" v-if="label">
+      {{ label }}
+    </label>
+    <p
     v-if="error"
     class="error-message"
     aria-live="assertive"
-  >
-    {{ error }}
-  </p>
+    >
+      {{ error }}
+    </p>
+  </div>
 </template>
 
 <script>
@@ -54,7 +56,12 @@ export default {
 </script>
 <!--Styling for BaseCheckbox -->
 <style scoped>
-input, label {
-  justify-content: space-between;
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+.container label {
+  margin: 5px;
 }
 </style>

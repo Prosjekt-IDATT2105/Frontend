@@ -6,6 +6,7 @@ import StudassPage from "../views/Studass/StudassPage.vue";
 import Lecturer from "../views/Admin/Lecturer.vue"
 import MeldInnIQS from "../views/Student/MeldInnIQS.vue"
 import QueComponent from "../views/Student/QueComponent.vue"
+import StudentQueue from "../views/Studass/StudentQueue.vue";
 
 //Oppretter paths til de ulike sidene som blir brukt i applikasjonen
 const routes = [
@@ -38,6 +39,11 @@ const routes = [
     path: "/queue",
     name: QueComponent,
     component: QueComponent,
+  },
+  {
+    path: "/studentqueue",
+    name: StudentQueue,
+    component: StudentQueue,
   }
 ];
 
