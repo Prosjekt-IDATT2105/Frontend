@@ -21,7 +21,7 @@ const routes = [
     component: StudassPage,
   },
   {
-    path: "/login",
+    path: "/",
     name: "LoginPage",
     component: LoginPage,
   },

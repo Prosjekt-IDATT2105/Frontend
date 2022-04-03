@@ -61,4 +61,14 @@ export default {
     background-color: #01579b;
     transform: translateY(-1px);
 }
+@media screen and (max-width: 575px) {
+    .Studassbox-container { 
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        min-height: 20px;
+        border: 2px solid #424242;
+        align-items: center;
+}
+}
 </style>
