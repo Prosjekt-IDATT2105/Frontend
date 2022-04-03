@@ -56,12 +56,5 @@ export default {
 </script>
 <!--Styling for BaseCheckbox -->
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: row;
-  margin-left: 20px;
-}
-.container label {
-  margin: 5px;
-}
+
 </style>

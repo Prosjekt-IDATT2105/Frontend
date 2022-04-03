@@ -2,12 +2,12 @@
 For å kunne stille seg i kø må studenten oppgi sin lokasjon og krysse av om de trenger hjelp eller godkjenning.
 Studenten må også krysse av hvilken øving det gjelder -->
 <template>
-  <div class="container">
+  <div class="ContainerQS">
     <!-- Tar inn komponenten BaseSelect slik at studentene kan oppgi lokasjonen sin 
         Den første er for å velge bygning, neste er for å oppgi hvilket rom og siste for å oppgi hvilket 
         bord man befinner seg på-->
-    <div class="Location">
       <h3>Lokasjon:</h3>
+    <div class="Location">
       <base-select
           id="Building"
           label="Building"
@@ -21,10 +21,11 @@ Studenten må også krysse av hvilken øving det gjelder -->
           label="Table"
           :options="table"/>
     </div>
+    <img class="Table" src="@/assets/Bordplassering-2.jpg"/>
     <!-- Tar inn komponeten BaseCheckobox slik at studenten skal kunne oppgi om de trenger 
         hjelp eller godkjenning av studentassisten -->
-    <div class="Type">
       <h3>Hjelp/Godkjenning:</h3>
+    <div class="Type">
       <base-checkbox
           class="Type"
           id="Godkjenning"
@@ -37,15 +38,11 @@ Studenten må også krysse av hvilken øving det gjelder -->
           label="Hjelp"
           value="hjelp"
       />
-
-    </div>
-    <div>
-      <img class="Table" src="@/assets/Bordplassering-2.jpg"/>
     </div>
     <!-- Tar inn komponeten BaseCheckobox slik at studenten skal kunne oppgi 
     hvilken øving det gjelder-->
-    <div class="Oving" >
       <h3>Øvinger:</h3>
+    <div class="Oving" >
       <base-checkbox
           class="Oving"
           label="Øving 1"
@@ -73,9 +70,7 @@ Studenten må også krysse av hvilken øving det gjelder -->
       />
     </div>
     <!-- Submit-knapp for å legge studenten inn i køen-->
-    <div class="button">
-      <button @click="toQue">Send til kø</button>
-    </div>
+    <button class="button" @click="toQue">Send til kø</button>
   </div>
 </template>
 <script>
@@ -138,35 +133,67 @@ export default {
 </script>
 <!-- Styling for siden--> 
 <style scoped>
-.conatiner {
-  color: #f6f7eb;
-  width: 100%;
-  margin-left: 50px;
-  justify-content: center;
-  align-self: center;
-}
-.checkbox {
+.Location {
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  text-decoration-color: white;
-  padding: 20px;
-  align-content: center;
+  flex-direction: row;
 }
-.location {
-  padding: 20px;
+.Type {
+  display: flex;
+  flex-direction: row;
+  margin-left: 8px;
+}
+.Oving{
+  display: flex;
+  flex-direction: row;
+  margin-left: 8px;
 }
 .button {
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-left: 140px;
+  margin-top: 30px;
+}
+.button:hover {
+  background-color: #01579b;
+  cursor: pointer;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 h3 {
   margin-left: 20px;
 }
 img {
- max-width: 20%;
- max-height: 20%;
- object-fit: contain;
- margin-left: 300px;
+ max-width: 200px;
+ max-height: 300px;
+ margin-left: 20px;
+}
+@media  screen and (max-width: 640px) {
+  .Location {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    vertical-align:middle;
+  }
+  .Type {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    vertical-align: -webkit-baseline-middle;
+  }
+  .Oving {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+  }
+  h3 {
+    margin-left: 20px;
+  }
+  img {
+    max-width: 100px;
+    max-height: 200px;
+    margin-left: 20px;
+  }
+  .button {
+    margin-left: 140px;
+    margin-top: 30px;
+  }
 }
 </style>

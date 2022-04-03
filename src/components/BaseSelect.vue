@@ -53,7 +53,6 @@ export default {
 </script>
 <style scoped>
 .container {
-  display: flex;
   margin-left: 20px;
   margin-bottom: 10px;
 }

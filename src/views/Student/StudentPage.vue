@@ -9,8 +9,9 @@ og oversikt over øvingene i det aktuelle emnet-->
         oversikt over sine aktive mener og om de trykker på arkiverte emner får vil de få oversikt over 
         arkiverte mener. Henter inn sidene AkiveEmner og ArkiverteEmner-->
         <div class="header-top">
-            <h3 @click="showDetailsAktive()">Aktive Emner</h3>
-            <h3 @click="showDetailsArkiverte()">Arkiverte Emner</h3>
+            <h3 id="active" @click="showDetailsAktive()">Aktive Emner</h3>
+            <img src="@/assets/QS.png"/>
+            <h3 id="arkivert" @click="showDetailsArkiverte()">Arkiverte Emner</h3>
         </div>
         <div class="aktiveEmner" v-show="openAktiveEmner">
             <aktive-emner/>
@@ -63,6 +64,17 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     padding: 0 160px 0 160px;
-    background-color: bisque;
+    background-color: #424242;
+}
+img {
+    max-height: 40px;
+    max-width: 20%;
+    margin: 15px;
+}
+#active:hover {
+    cursor: pointer;
+}
+#arkivert:hover {
+    cursor: pointer;
 }
 </style>
