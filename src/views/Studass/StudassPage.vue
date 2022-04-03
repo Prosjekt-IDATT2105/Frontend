@@ -2,7 +2,7 @@
 En studentassisten vil også ha tilgang til studentsiden ettersom de også er studenter i andre 
 emner enn de er studentassistent i. De vil ha mulighet til å enten ha studentvisning eller studentassistentvisning-->
 <template>
-    <div class="conatiner">
+    <div class="StudassPage">
         <!--Headere som brukeren kan trykke på for å bytte mellom 
         studentvisning eller studentassistentvisning.
         Henter inn StudentPage og StudassComponent ettersom hva brukeren ønsker -->
@@ -13,7 +13,7 @@ emner enn de er studentassistent i. De vil ha mulighet til å enten ha studentvi
         <div class="Student" v-show="openStudent">
             <student-page/>
         </div>
-        <div class="Studass" v-show="openStudass">
+        <div id="Studass" v-show="openStudass">
             <studass-component/>
         </div>
     </div>
@@ -53,15 +53,14 @@ export default {
 </script>
 <!--Styling for studentassistent siden -->
 <style scoped>
-.container {
-    display: flex;
-    flex-direction: column;
-}
 .header-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0 160px 0 160px;
-    background-color: bisque;
+    background-color: #424242;
+}
+#Studass {
+    justify-content: center;
 }
 </style>

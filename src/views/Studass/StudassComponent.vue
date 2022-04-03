@@ -1,12 +1,12 @@
 <template>
-    <div class="container">
-        <div class="information">
+    <div class="Studassbox-container">
+        <div class="Information">
             <h3>Emnenavn</h3>
             <h4>Emnekode</h4>
         </div>
-        <div class="buttons">
-            <button>Aktiver køen</button>
-            <button id="ovinger" @click="onClick">Se kø</button>
+        <div class="Buttons">
+            <button id="Activate">Aktiver køen</button>
+            <button id="SeeQueue" @click="onClick">Se kø</button>
         </div>
     </div>
 </template>
@@ -23,30 +23,42 @@ export default {
 </script>
 <!--Styling for StudentComponent -->
 <style scoped>
-.container { 
+.Studassbox-container { 
   display: flex;
   flex-direction: column;
   width: 350px;
   min-height: 20px;
-  border: 2px solid white;
+  border: 2px solid #424242;
   align-items: center;
-  justify-content: center;
   margin: 15px;
 }
-.infromation, h3, h4{
+.Infromation, h3, h4{
     flex-direction: column;
-    justify-content: center;
-    color: white;
+    color: #ffffff;
 }
-.buttons {
+.Buttons {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
 }
-#add-que {
+#Activate {
     margin-right: 50px;
+    background-color: #424242;
+    color: #ffffff;
 }
-#ovinger {
+#SeeQueue {
     margin-left: 50px;
+    background-color: #424242;
+    color: #ffffff;
+}
+#Activate:hover {
+    cursor: pointer;
+    background-color: #01579b;
+    transform: translateY(-1px);
+}
+#SeeQueue:hover {
+    cursor: pointer;
+    background-color: #01579b;
+    transform: translateY(-1px);
 }
 </style>

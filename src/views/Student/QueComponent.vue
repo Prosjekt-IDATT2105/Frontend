@@ -8,9 +8,7 @@ Når det er deres tur vil de få beskjed i QS at det er brukeren sin tur-->
             <h4>Emnekode</h4>
             <h4>Posisjon i køen: {{count}} </h4>
         </div>
-        <div class="buttons">
-            <button @click="onClick">Slett fra køen</button>
-        </div>
+        <button class="button" @click="onClick">Slett fra køen</button>
     </div>
 </template>
 <script>
@@ -31,7 +29,7 @@ export default {
   flex-direction: column;
   width: 350px;
   min-height: 20px;
-  border: 2px solid white;
+  border: 2px solid #424242;
   align-items: center;
   justify-content: center;
   margin: 15px;
@@ -40,12 +38,19 @@ export default {
 .infromation, h3, h4{
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: #ffffff;
 }
-.buttons {
+.button {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+    background-color: #424242;
+    color: #ffffff;
+}
+.button:hover {
+    cursor: pointer;
+    background-color: #01579b;
+    transform: translateY(-1px);
 }
 #add-que {
     margin-right: 50px;

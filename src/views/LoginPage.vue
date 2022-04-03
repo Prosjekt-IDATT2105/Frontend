@@ -2,8 +2,8 @@
 og det er sjekket opp mot databasen mottar brukeren en token som blir lagret til senere bruk.-->
 <template>
   <div class="container">
-    <h2 id="title">LOGIN</h2>
-    <h2 class="logInStatus" id="logInHeader">Please log in:)</h2>
+    <img class="logo" src="@/assets/QS.png">
+    <h2 class="logInStatus" id="logInHeader"></h2>
     <!-- Tar inn komponenten BaseInput hvor første er fletet hvor brukeren skriver brukernavn 
     og det andre fletet for at brukeren skal kunne skrive inn passord-->
     <BaseInput
@@ -74,7 +74,9 @@ export default {
         this.$store.commit("SET_ROLENAME", decoded.rolename);
         if('[ROLE_FORELESER]' === this.$store.state.rolename) {
           await this.$router.push("/lecturer");
-        }else if (this.$store.state.rolename === '[ROLE_STUDASS, ROLE_STUDENT]') {
+        }else if (this.$store.state.rolename === '[ROLE_STUDENT, ROLE_STUDASS]') {
+          await this.$router.push("/studass");
+        } else if (this.$store.state.rolename === '[ROLE_STUDASS, ROLE_STUDENT]') {
           await this.$router.push("/studass");
         } else {
           await this.$router.push("/student");
@@ -120,12 +122,18 @@ export default {
   -webkit-user-select: none;
   width: 350px;
 }
-button:hover .button {
+.button:hover {
   cursor: pointer;
-  transform: translateY(-6px);
+  transform: translateY(-1px);
+  background-color: #01579b;
+  color: #FFFFFF;
 }
-button:active .button{
+.button:active {
   transform: translateY(-2px);
 }
-
+img {
+  max-width: 20%;
+  max-height: 30%;
+  margin-top: 150px;
+}
 </style>

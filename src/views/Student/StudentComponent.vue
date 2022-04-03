@@ -9,7 +9,7 @@ en for å vise øvingene man har -->
             <h4>Emnekode</h4>
         </div>
         <div class="buttons">
-            <button @click="onClick">Bli med i køen</button>
+            <button id="addQueue" @click="onClick">Bli med i køen</button>
             <button id="ovinger">Vis øvinger</button>
         </div>
     </div>
@@ -32,7 +32,7 @@ export default {
   flex-direction: column;
   width: 350px;
   min-height: 20px;
-  border: 2px solid white;
+  border: 2px solid #424242;
   align-items: center;
   justify-content: center;
   margin: 15px;
@@ -40,17 +40,34 @@ export default {
 .infromation, h3, h4{
     flex-direction: column;
     justify-content: center;
-    color: white;
+    color: #ffffff;
 }
 .buttons {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+    border-radius: 6px;
+    text-decoration-color: #ffffff;
+    
 }
-#add-que {
+#addQueue {
     margin-right: 50px;
+    background-color: #212121;
+    color: #ffffff;
 }
 #ovinger {
     margin-left: 50px;
+    background-color: #212121;
+    color: #ffffff;
+}
+#ovinger:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+    background-color: #01579b;
+}
+#addQueue:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+    background-color: #01579b;
 }
 </style>
