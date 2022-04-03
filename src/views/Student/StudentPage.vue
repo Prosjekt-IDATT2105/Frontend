@@ -56,15 +56,18 @@ export default {
 <!--Styling for StudentPage visning-->
 <style scoped>
 .container {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 .header-top {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 160px 0 160px;
+    padding: 0 20px 0 20px;
     background-color: #424242;
+    width: 100%;
 }
 img {
     max-height: 40px;
@@ -76,5 +79,28 @@ img {
 }
 #arkivert:hover {
     cursor: pointer;
+}
+@media screen and (max-width: 575px) {
+    .header-top {
+        width: 100%;
+        padding: 0;
+    }
+    img {
+        max-height: 30px;
+        max-width: 20%;
+        margin-top: 7px;
+    }
+    #active {
+        padding-left: 5px;
+    }
+    #arkivert {
+        padding-right: 5px;
+    }
+    #active:hover {
+        cursor: pointer;
+    }
+    #arkivert:hover {
+        cursor: pointer;
+    }
 }
 </style>

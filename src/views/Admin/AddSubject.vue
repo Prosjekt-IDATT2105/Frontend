@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <input type="file" @change="uploadFile" ref="file" />
-    <button @click="submitFile">Send inn</button>
+    <button class="button" @click="submitFile">Send inn</button>
   </div>
 </template>
 <script>
@@ -49,3 +49,16 @@ export default {
   },
 };
 </script>
+<style scoped>
+.button {
+  background-color: #424242;
+  color: #ffffff;
+  width: 100px;
+  margin-top: 15px;
+}
+.button:hover {
+  background-color: #01579b;
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+</style>

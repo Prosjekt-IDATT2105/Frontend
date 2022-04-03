@@ -1,6 +1,9 @@
 <!-- Selve applikasjonen som vises for brukeren med link
 til de andre sidene-->
 <template>
+  <div class="User" v-if="this.$store.getters.GET_IsLoggedIn">
+    <h2>{{ this.$store.getters.GET_USERNAME }}</h2>
+  </div>
   <router-view />
   <div id="footer">
     <footer>
@@ -23,7 +26,6 @@ body {
   color: #ffffff;
   justify-content: space-between;
 }
-
 .logInStatus {
   color: azure;
 }
@@ -50,7 +52,16 @@ body {
 .studentbox-container {
   justify-self: center;
 }
-@media screen and (max-width: 640px){
+.User {
+  height: 50px;
+  text-align: center;
+  background-color: #212121;
+}
+h2 {
+  margin-top: 0;
+  padding-top: 10px;
+}
+@media screen and (max-width: 575px){
   .ContainerQS {
     margin-left: 35%;
   }
@@ -62,6 +73,12 @@ body {
     bottom: 0;
     height: 120px;
     justify-content: space-between;
+  }
+  .User {
+    background-color: #212121;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
   }
 }
 </style>

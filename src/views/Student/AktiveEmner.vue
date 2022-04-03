@@ -28,4 +28,16 @@ export default {
 #studentbox {
     align-self: center;
 }
+@media screen and (max-width: 575px) {
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 160px 0 160px;
+        background-color: #ffffff;
+    }
+    #studentbox {
+        align-self: center;
+    }
+}
 </style>
