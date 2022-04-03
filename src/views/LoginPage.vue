@@ -74,7 +74,7 @@ export default {
         this.$store.commit("SET_ROLENAME", decoded.rolename);
         if('[ROLE_FORELESER]' === this.$store.state.rolename) {
           await this.$router.push("/lecturer");
-        }else if (this.$store.state.rolename === '[ROLE_STUDENT, ROLE_STUDASS]') {
+        }else if (this.$store.state.rolename === '[ROLE_STUDASS, ROLE_STUDENT]') {
           await this.$router.push("/studass");
         } else {
           await this.$router.push("/student");

@@ -7,6 +7,7 @@ Studenten må også krysse av hvilken øving det gjelder -->
         Den første er for å velge bygning, neste er for å oppgi hvilket rom og siste for å oppgi hvilket 
         bord man befinner seg på-->
     <div class="Location">
+      <h3>Lokasjon:</h3>
       <base-select
           id="Building"
           label="Building"
@@ -23,6 +24,7 @@ Studenten må også krysse av hvilken øving det gjelder -->
     <!-- Tar inn komponeten BaseCheckobox slik at studenten skal kunne oppgi om de trenger 
         hjelp eller godkjenning av studentassisten -->
     <div class="Type">
+      <h3>Hjelp/Godkjenning:</h3>
       <base-checkbox
           class="Type"
           id="Godkjenning"
@@ -37,9 +39,13 @@ Studenten må også krysse av hvilken øving det gjelder -->
       />
 
     </div>
+    <div>
+      <img class="Table" src="@/assets/Bordplassering-2.jpg"/>
+    </div>
     <!-- Tar inn komponeten BaseCheckobox slik at studenten skal kunne oppgi 
     hvilken øving det gjelder-->
     <div class="Oving" >
+      <h3>Øvinger:</h3>
       <base-checkbox
           class="Oving"
           label="Øving 1"
@@ -135,20 +141,32 @@ export default {
 .conatiner {
   color: #f6f7eb;
   width: 100%;
-  margin: auto;
+  margin-left: 50px;
   justify-content: center;
+  align-self: center;
 }
-
 .checkbox {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   text-decoration-color: white;
   padding: 20px;
   align-content: center;
 }
-
 .location {
   padding: 20px;
+}
+.button {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+h3 {
+  margin-left: 20px;
+}
+img {
+ max-width: 20%;
+ max-height: 20%;
+ object-fit: contain;
+ margin-left: 300px;
 }
 </style>

@@ -43,4 +43,7 @@ export default {
   height: rem(600);
   margin-bottom: rem(100);
 }
+#studentbox {
+    align-self: center;
+}
 </style>

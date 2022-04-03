@@ -26,6 +26,7 @@ export default createStore({
     ],
     type: "",
     oving: "",
+    studentQueue: [],
 
   },
   mutations: {
@@ -57,7 +58,16 @@ export default createStore({
     },
     SET_OVING(state, oving) {
       state.oving = oving;
-    }
+    },
+    SET_STUDENTQUEUE(state, studentQueue) {
+      state.studentQueue = studentQueue;
+    },
+    ADD_STUDENT(state, student) {
+      state.studentQueue.push(student);
+    },
+    ADD_STUDENT_QUEUE(state, students) {
+      state.studentQueue.push(students);
+    },
   
   },
   getters: {
@@ -84,7 +94,10 @@ export default createStore({
     },
     GET_OVING(state) {
       return state.rolename;
-    }
+    },
+    GET_STUDENTQUEUE(state) {
+      return state.studentQueue;
+    },
   },
   actions: {},
   modules: {},
