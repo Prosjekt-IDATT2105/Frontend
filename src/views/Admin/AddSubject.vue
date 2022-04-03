@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <input type="file" @change="uploadFile" ref="file"/>
+    <input type="file" @change="uploadFile" ref="file" />
     <button @click="submitFile">Send inn</button>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
           Authorization: "Bearer " + this.$store.getters.GET_TOKEN,
         },
       },
-    }
+    };
   },
 
   methods: {
@@ -24,24 +24,28 @@ export default {
     },
     async submitFile() {
       const formData = new FormData();
-      formData.append("file", this.File);
-      const headers = { "Content-Type": "multipart/form-data" };
+      formData.append("file", this.File, this.File.name); //la til den ssite
+      const headers = {
+        "Content-Type": "multipart/form-data",
+        Authorization: "Bearer " + this.$store.getters.GET_TOKEN,
+      };
       await axios
         .post(
           "/csv/upload",
           formData,
           {
             params: {
-              file: this.File,
-              headers
-            }
+              file: this.file,
+              headers,
+            },
           },
           this.config
         )
         .then((response) => {
           response.data;
         });
-    }
+      alert("funket");
+    },
   },
-}
+};
 </script>
