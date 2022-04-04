@@ -22,6 +22,10 @@ const routes = [
   },
   {
     path: "/",
+    redirect: "/loginpage",
+  },
+  {
+    path: "/loginpage",
     name: "LoginPage",
     component: LoginPage,
   },
@@ -31,7 +35,7 @@ const routes = [
     component: Lecturer,
   },
   {
-    path: "/toque",
+    path: "/toqueue",
     name: MeldInnIQS,
     component: MeldInnIQS,
   },

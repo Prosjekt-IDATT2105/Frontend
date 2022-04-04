@@ -31,6 +31,7 @@ export default {
   border: 2px solid #424242;
   align-items: center;
   margin: 15px;
+  background-color: #212121;
 }
 .Infromation, h3, h4{
     flex-direction: column;
@@ -65,10 +66,36 @@ export default {
     .Studassbox-container { 
         display: flex;
         flex-direction: column;
-        width: 200px;
+        width: 300px;
         min-height: 20px;
         border: 2px solid #424242;
         align-items: center;
-}
+        background-color: #212121;
+    }
+    .Buttons {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+    }
+    #Activate {
+        margin-right: 50px;
+        background-color: #424242;
+        color: #ffffff;
+    }
+    #SeeQueue {
+        margin-left: 50px;
+        background-color: #424242;
+        color: #ffffff;
+    }
+    #Activate:hover {
+        cursor: pointer;
+        background-color: #01579b;
+        transform: translateY(-1px);
+    }
+    #SeeQueue:hover {
+        cursor: pointer;
+        background-color: #01579b;
+        transform: translateY(-1px);
+    }
 }
 </style>

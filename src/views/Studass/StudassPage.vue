@@ -88,5 +88,8 @@ img {
     .StudassPage {
         justify-items: center;
     }
+    .Studass {
+        margin-left: 40px;
+    }
 }
 </style>

@@ -3,7 +3,7 @@ Her får studenten oversikt over sikt over emner de har dette semesteret og emne
 Under aktive emner vil studenten kunne få oversikt over emnene de har og om køene til disse emnene er åpne
 og oversikt over øvingene i det aktuelle emnet-->
 <template>
-    <div class="container"> 
+    <div class="StudentPage"> 
         <!-- Headers som som studenten kan bruke for å se om de ønsker å se på tidligere emner
         eller om de ønsker å se på aktive emner. Hvis brukeren trykker på Aktive emner vil de få
         oversikt over sine aktive mener og om de trykker på arkiverte emner får vil de få oversikt over 
@@ -55,10 +55,11 @@ export default {
 </script>
 <!--Styling for StudentPage visning-->
 <style scoped>
-.container {
+.StudentPage {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-content: center;
 }
 .header-top {
     width: 100%;

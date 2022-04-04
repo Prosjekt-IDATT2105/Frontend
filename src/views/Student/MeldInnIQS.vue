@@ -9,17 +9,18 @@ Studenten må også krysse av hvilken øving det gjelder -->
       <h3>Lokasjon:</h3>
     <div class="Location">
       <base-select
-          id="Building"
-          label="Building"
-          :options="building"/>
+      id="Building"
+      label="Bygning"
+      :options="building"/>
       <base-select
-          id="Classroom"
-          label="Classroom"
-          :options="classroom"/>
+      id="Classroom"
+      label="Klasserom"
+      :options="classroom"/>
       <base-select
-          id="Table"
-          label="Table"
-          :options="table"/>
+      id="Table"
+      label="Bord"
+      :options="table"
+      />
     </div>
     <img class="Table" src="@/assets/Bordplassering-2.jpg"/>
     <!-- Tar inn komponeten BaseCheckobox slik at studenten skal kunne oppgi om de trenger 
@@ -27,16 +28,16 @@ Studenten må også krysse av hvilken øving det gjelder -->
       <h3>Hjelp/Godkjenning:</h3>
     <div class="Type">
       <base-checkbox
-          class="Type"
-          id="Godkjenning"
-          label="Godkjenning"
-          value="godkjenning"
+      class="Type"
+      id="Godkjenning"
+      label="Godkjenning"
+      value="godkjenning"
       />
       <base-checkbox
-          class="Type"
-          id="Hjelp"
-          label="Hjelp"
-          value="hjelp"
+      class="Type"
+      id="Hjelp"
+      label="Hjelp"
+      value="hjelp"
       />
     </div>
     <!-- Tar inn komponeten BaseCheckobox slik at studenten skal kunne oppgi 
@@ -44,33 +45,33 @@ Studenten må også krysse av hvilken øving det gjelder -->
       <h3>Øvinger:</h3>
     <div class="Oving" >
       <base-checkbox
-          class="Oving"
-          label="Øving 1"
-          value="1"
+      class="Oving"
+      label="Øving 1"
+      value="1"
       />
       <base-checkbox
-          class="Oving"
-          label="Øving 2"
-          value="2"
+      class="Oving"
+      label="Øving 2"
+      value="2"
       />
       <base-checkbox
-          class="Oving"
-          label="Øving 3"
-          value="3"
+      class="Oving"
+      label="Øving 3"
+      value="3"
       />
       <base-checkbox
-          class="Oving"
-          label="Øving 4"
-          value="4"
+      class="Oving"
+      abel="Øving 4"
+      value="4"
       />
       <base-checkbox
-          class="Oving"
-          label="Øving 5"
-          value="5"
+      class="Oving"
+      label="Øving 5"
+      value="5"
       />
     </div>
     <!-- Submit-knapp for å legge studenten inn i køen-->
-    <button class="button" @click="toQue">Send til kø</button>
+    <button class="ToQueue" @click="toQueue">Send til kø</button>
   </div>
 </template>
 <script>
@@ -109,12 +110,12 @@ export default {
 
     // Metode for å sende infrmasjonen studenten fyller ut til backend
     // Når informasjonen er sendt vil studenten bli sendt til siden for køen. 
-    async toQue() {
+    async toQueue() {
       await axios
           .post(
               "/queue", null, {
                 params: {
-                  location: this.$store.state.building + this.$store.state.classroom + this.$store.state.table,
+                  location: document.querySelectorAll(".Location option:checked").value,
                   type: document.querySelector('.Type:checked').value,
                   oving: document.querySelector('.Oving:checked').value,
                   username: this.$store.state.username,
@@ -147,11 +148,13 @@ export default {
   flex-direction: row;
   margin-left: 8px;
 }
-.button {
+.ToQueue {
+  background-color: #424242;
+  color: #ffffff;
   margin-left: 140px;
   margin-top: 30px;
 }
-.button:hover {
+.ToQueue:hover {
   background-color: #01579b;
   cursor: pointer;
   color: #ffffff;
@@ -169,31 +172,35 @@ img {
   .Location {
     display: flex;
     flex-direction: column;
-    margin-left: 8px;
+    margin-left: 0;
     vertical-align:middle;
   }
   .Type {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: 8px;
     vertical-align: -webkit-baseline-middle;
   }
   .Oving {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
     margin-left: 8px;
   }
   h3 {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   img {
     max-width: 100px;
     max-height: 200px;
     margin-left: 20px;
   }
-  .button {
-    margin-left: 140px;
-    margin-top: 30px;
+  .ToQueue {
+    margin-left: 17px;
   }
+  .ToQueue:hover {
+    background-color: #01579b;
+    cursor: pointer;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
 }
 </style>
