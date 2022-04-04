@@ -1,14 +1,12 @@
 <template>
-    <div class="Studassbox-container">
-        <div class="Information">
-            <h3>Emnenavn</h3>
-            <h4>Emnekode</h4>
-        </div>
+    <h2 class="Studassbox-container" v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
+    v-bind:key="subject" v-on:change.prevent="getSubject()">
+        {{ subject.subject_name }} {{ subject.subject_code }}
         <div class="Buttons">
             <button id="Activate">Aktiver køen</button>
             <button id="SeeQueue" @click="onClick">Se kø</button>
         </div>
-    </div>
+    </h2>
 </template>
 <script>
 export default {
@@ -32,6 +30,7 @@ export default {
   align-items: center;
   margin: 15px;
   background-color: #212121;
+  text-align: center;
 }
 .Infromation, h3, h4{
     flex-direction: column;
@@ -40,7 +39,7 @@ export default {
 .Buttons {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin: 10px 0 5px 0;
 }
 #Activate {
     margin-right: 50px;

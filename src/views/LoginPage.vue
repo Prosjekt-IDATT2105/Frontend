@@ -1,7 +1,7 @@
 <!-- Siden hvor brukeren kan logge inn på systemet. Når brukeren har fylt ut brukernavn og passord
 og det er sjekket opp mot databasen mottar brukeren en token som blir lagret til senere bruk.-->
 <template>
-  <div class="LoginPage">
+  <div class="LoginPage" @submit.prevent="getSubject">
     <img class="logo" src="@/assets/QS.png">
     <h2 class="logInStatus" id="logInHeader"></h2>
     <!-- Tar inn komponenten BaseInput hvor første er fletet hvor brukeren skriver brukernavn 
@@ -20,7 +20,7 @@ og det er sjekket opp mot databasen mottar brukeren en token som blir lagret til
     />
     <!-- Submit-knapp hvor brukernavnet og passordet til bruekeren blir sendt til backend. Om brukernavn og passord er gyldig
     vil brukeren bli dirigert til riktig side ut fra hvilken rolle de har-->
-    <button class="SignInBtn" @click="handleClickSignin">
+    <button class="SignInBtn" @click.prevent="handleClickSignin">
       Login
     </button>
   </div>
@@ -100,15 +100,18 @@ export default {
 .SignInBtn {
   background-color: #FFFFFF;
   border: 1px solid #222222;
-  border-radius: 8px;
+  border-radius: 10px;
   box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-style: normal;
   color: #222222;
   cursor: pointer;
   margin-top: 30px;
   padding: 13px 23px;
   position: relative;
   text-align: center;
-  width: 340px;
+  width: 360px;
+  height: 40px;
 }
 .SignInBtn:hover {
   cursor: pointer;
@@ -141,8 +144,8 @@ img {
     transform: translateY(-2px);
   }
   img {
-    max-width: 20%;
-    max-height: 30%;
+    max-width: 40%;
+    max-height: 50%;
     margin-top: 150px;
   }
   .SignInBtn {

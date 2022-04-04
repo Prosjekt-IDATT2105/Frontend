@@ -3,14 +3,13 @@ Denne vil bli automatisk oppdatert når deres posisjon i køen endrer seg.
 Når det er deres tur vil de få beskjed i QS at det er brukeren sin tur-->
 <template>
         <h3 id="queue">KØ</h3>
-    <div class="studentbox-container">
-        <div class="information">
-            <h3>Emnenavn</h3>
-            <h4>Emnekode</h4>
-            <h4>Posisjon i køen: </h4>
+    <h2 class="studentbox-container" v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
+    v-bind:key="subject" v-on:change.prevent="getSubject()">
+        {{ subject.subject_name }} {{ subject.subject_code }}
+        <div class="buttons">
+            <button class="button" @click="onClick">Slett fra køen</button> 
         </div>
-        <button class="button" @click="onClick">Slett fra køen</button>
-    </div>
+    </h2>
 </template>
 <script>
 import axios from "axios";
@@ -62,11 +61,13 @@ export default {
   border: 2px solid #424242;
   align-items: center;
   margin: 15px 0 0 230px;
+  text-align: center;
 }
-.infromation, h3, h4{
+.infromation {
     flex-direction: column;
     justify-content: center;
     color: #ffffff;
+    text-align: center;
 }
 .button {
     display: flex;
@@ -82,5 +83,19 @@ export default {
 }
 #queue {
     margin-left: 385px;
+}
+@media screen and (max-width: 575px) {
+    .studentbox-container { 
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        min-height: 20px;
+        border: 2px solid #424242;
+        align-items: center;
+        margin: 15px 0 0 20px;
+    }
+    #queue {
+        margin-left: 175px;
+    }
 }
 </style>

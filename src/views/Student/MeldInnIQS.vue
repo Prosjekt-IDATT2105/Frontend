@@ -61,7 +61,7 @@ Studenten må også krysse av hvilken øving det gjelder -->
       />
       <base-checkbox
       class="Oving"
-      abel="Øving 4"
+      label="Øving 4"
       value="4"
       />
       <base-checkbox
@@ -101,8 +101,9 @@ export default {
   methods: {
     //Metode for at studenten enten kan be om hjelp eller godkjenning når de stiller seg i kø
     cbChange(obj) {
-      const cbs = document.getElementsByClassName("Type");
+      const cbs = document.getElementsById("Godkjenning");
       for (let i = 0; i < cbs.length-1; i++) {
+        
         cbs[i].checked = false;
       }
       obj.checked = true;
@@ -115,7 +116,7 @@ export default {
           .post(
               "/queue", null, {
                 params: {
-                  location: document.querySelectorAll(".Location option:checked").value,
+                  location: this.$store.state.building + this.$store.state.classroom + this.$store.state.table,
                   type: document.querySelector('.Type:checked').value,
                   oving: document.querySelector('.Oving:checked').value,
                   username: this.$store.state.username,

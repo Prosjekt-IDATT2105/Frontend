@@ -3,19 +3,14 @@ Den består av informasjon om emnenavn og emnekode.
 Det er også laget en knapp for å stille seg i kø og 
 en for å vise øvingene man har -->
 <template>
-    <div class="studentbox-container">
-        <div class="information">
-            <h2 v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
-                v-bind:key="subject">{{ subject.subject_name }}</h2>
-            <h3 v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
-                v-bind:key="subject">{{ subject.subject_code }}</h3>    
-        </div>
+    <h2 class="studentbox-container" v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
+    v-bind:key="subject" v-on:change.prevent="getSubject()">
+        {{ subject.subject_name }} {{ subject.subject_code }}
         <div class="buttons">
             <button id="addQueue" @click="onClick">Bli med i køen</button>
-            <button id="ovinger">Vis øvinger</button>
-            <button @click="getSubject">Hent fag</button>
+                <button id="ovinger">Vis øvinger</button>
         </div>
-    </div>
+    </h2>
 </template>
 <script>
 import axios from 'axios';
@@ -46,6 +41,9 @@ export default {
                 });
             });
         },
+    },
+    mounted: function() {
+        this.getSubject();
     }
 }
 </script>
@@ -58,19 +56,15 @@ export default {
   min-height: 20px;
   border: 2px solid #424242;
   align-items: center;
+  text-align: center;
   justify-content: center;
   margin: 15px;
   background-color: #212121;
 }
-.infromation, h3, h4{
-    flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-}
 .buttons {
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin: 10px 0 5px 0;
     border-radius: 6px;
     text-decoration-color: #ffffff;
     
@@ -104,7 +98,7 @@ export default {
         border: 2px solid #424242;
         align-items: center;
         justify-content: center;
-        margin: 10px;
+        margin: 10px 5px 10px 5px;
         background-color: #212121;
     }
     .infromation, h3, h4{
