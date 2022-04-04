@@ -1,3 +1,7 @@
+<!--Komponenten for å liste alle fagene en student er studentassistent i.
+Her hentes emnenavn og emnekoden fra databasen i backend. 
+For hvert emne vil studentassistenten ha mulighet til å aktivere køen for studenter
+og gå inn for å se hvem som står i kø.-->
 <template>
     <h2 class="Studassbox-container" v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
     v-bind:key="subject" v-on:change.prevent="getSubject()">
@@ -11,8 +15,7 @@
 <script>
 export default {
     methods: {
-       /**Metode for å sende studentene til siden hvor de kan registrere seg for
-        * å enten få hjelp eller få godkjent en øving */ 
+       /**Metode for å sende studentassistenten til få opp hvem som står i kø. */ 
        async onClick() {
            await this.$router.push("/studentqueue");
         }

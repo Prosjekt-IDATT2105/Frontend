@@ -1,3 +1,5 @@
+<!-- Siden hvor studentassistenten kan se hvilke studenter som står i kø og hvem
+de skal hjelpe. Køen er sortert etter rekkefølgen studentene stilte seg i kø -->
 <template>
     <div class="StudentQueue">
         <div class="log">
@@ -14,6 +16,7 @@
     </div>
 </template>
 <script>
+//Imports:
 import axios from "axios";
 export default {
     data() {
@@ -27,6 +30,11 @@ export default {
         };
     },
     methods: {
+        /**Metode som  henter ut alle studentene som står i kø i det aktive emnet.
+         * Den sender en request til backend for å hente ut alle studentene som står i kø,
+         * så får den en response med alle studentene i køen og informasjon om lokasjon, 
+         * og hvilken øving de ønsker bistand med. 
+        */
         getStudentsInQueue() {
           this.fetchedStudents = true;
           axios
@@ -40,11 +48,13 @@ export default {
             });
         },
     },
-    created: function() {
+    //For at køen skal lastes inn når studentassistenten går til køen
+    mounted: function() {
         this.getStudentsInQueue();
     }
 }
 </script>
+<!--Styling for StudentQueue -->
 <style scoped>
 .StudentQueue {
     margin: 5px 0 0 50px;

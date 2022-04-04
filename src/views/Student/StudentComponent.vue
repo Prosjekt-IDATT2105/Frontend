@@ -1,14 +1,14 @@
-<!--Inoformasjonsboksen for emnene en student har.
+<!--Informasjonsboksen for emnene en student har.
 Den består av informasjon om emnenavn og emnekode.
 Det er også laget en knapp for å stille seg i kø og 
-en for å vise øvingene man har -->
+en for å vise øvingene man har-->
 <template>
     <h2 class="studentbox-container" v-for="subject in this.$store.getters.GET_SUBJECTS.slice().reverse()"
     v-bind:key="subject" v-on:change.prevent="getSubject()">
         {{ subject.subject_name }} {{ subject.subject_code }}
         <div class="buttons">
             <button id="addQueue" @click="onClick">Bli med i køen</button>
-                <button id="ovinger">Vis øvinger</button>
+            <button id="ovinger">Vis øvinger</button>
         </div>
     </h2>
 </template>
