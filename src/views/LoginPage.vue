@@ -1,7 +1,7 @@
 <!-- Siden hvor brukeren kan logge inn på systemet. Når brukeren har fylt ut brukernavn og passord
 og det er sjekket opp mot databasen mottar brukeren en token som blir lagret til senere bruk.-->
 <template>
-  <div class="container">
+  <div class="LoginPage">
     <img class="logo" src="@/assets/QS.png">
     <h2 class="logInStatus" id="logInHeader"></h2>
     <!-- Tar inn komponenten BaseInput hvor første er fletet hvor brukeren skriver brukernavn 
@@ -20,7 +20,7 @@ og det er sjekket opp mot databasen mottar brukeren en token som blir lagret til
     />
     <!-- Submit-knapp hvor brukernavnet og passordet til bruekeren blir sendt til backend. Om brukernavn og passord er gyldig
     vil brukeren bli dirigert til riktig side ut fra hvilken rolle de har-->
-    <button id="btnSubmit" class="button" @click="handleClickSignin">
+    <button class="SignInBtn" @click="handleClickSignin">
       Login
     </button>
   </div>
@@ -88,52 +88,75 @@ export default {
 </script>
 <!-- Styling for Login-siden-->
 <style scoped>
-.container {
+.LoginPage {
   text-align: center;
   color: #f6f7eb;
   width: 50%;
   margin: auto;
-
 }
 .logInStatus {
   color: #f6f7eb;
 }
-.button {
+.SignInBtn {
   background-color: #FFFFFF;
   border: 1px solid #222222;
   border-radius: 8px;
   box-sizing: border-box;
   color: #222222;
   cursor: pointer;
-  display: inline-block;
-  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 10px;
   margin-top: 30px;
-  outline: none;
   padding: 13px 23px;
   position: relative;
   text-align: center;
-  text-decoration: none;
-  touch-action: manipulation;
-  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
-  user-select: none;
-  -webkit-user-select: none;
-  width: 350px;
+  width: 340px;
 }
-.button:hover {
+.SignInBtn:hover {
   cursor: pointer;
   transform: translateY(-1px);
   background-color: #01579b;
   color: #FFFFFF;
 }
-.button:active {
+.SignInBtn:active {
   transform: translateY(-2px);
 }
 img {
   max-width: 20%;
   max-height: 30%;
   margin-top: 150px;
+}
+@media screen and (max-width: 575px) {
+  .LoginPage {
+    text-align: center;
+    color: #f6f7eb;
+    width: 50%;
+    margin: auto;
+  }
+  .SignInBtn:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
+    background-color: #01579b;
+    color: #FFFFFF;
+  }
+  .SignInBtn:active {
+    transform: translateY(-2px);
+  }
+  img {
+    max-width: 20%;
+    max-height: 30%;
+    margin-top: 150px;
+  }
+  .SignInBtn {
+    background-color: #FFFFFF;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    color: #222222;
+    cursor: pointer;
+    margin-top: 30px;
+    text-align: center;
+    width: 200px;
+  }
+  .field {
+    width: 200px;
+  }
 }
 </style>

@@ -2,7 +2,7 @@
 for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
 mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
-  <div class="container">
+  <div class="BaseCheckbox">
     <input
     v-bind="$attrs"
     :checked="modelValue"
@@ -54,7 +54,3 @@ export default {
   },
 };
 </script>
-<!--Styling for BaseCheckbox -->
-<style scoped>
-
-</style>

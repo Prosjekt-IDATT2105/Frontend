@@ -12,10 +12,10 @@ export default createStore({
     token: "",
     rolename: "",
     building: [
-      'Realfagsbygget',
+      'Realfagsbygget ',
     ],
     classroom: [
-      'A4-112',
+      'A4-112 ',
     ],
     table: [
       '1',
@@ -27,6 +27,7 @@ export default createStore({
     type: "",
     oving: "",
     studentQueue: [],
+    subjects: [],
 
   },
   mutations: {
@@ -68,7 +69,16 @@ export default createStore({
     ADD_STUDENT_QUEUE(state, students) {
       state.studentQueue.push(students);
     },
-  
+    ADD_SUBJECT(state, subject) {
+      state.subjects.push(subject);
+    },
+    ADD_SUBJECTS(state, subjects) {
+      state.studentQueue.push(subjects);
+    },
+    SET_SUBJECT(state, subject) {
+      state.subjects = subject;
+    },
+    
   },
   getters: {
     GET_TOKEN(state) {
@@ -83,9 +93,6 @@ export default createStore({
     GET_IsLoggedIn(state) {
       return state.isLoggedIn;
     },
-    GET_USERID(state) {
-      return state.user_id;
-    },
     GET_ROLENAME(state) {
       return state.rolename;
     },
@@ -97,6 +104,9 @@ export default createStore({
     },
     GET_STUDENTQUEUE(state) {
       return state.studentQueue;
+    },
+    GET_SUBJECTS(state) {
+      return state.subjects;
     },
   },
   actions: {},

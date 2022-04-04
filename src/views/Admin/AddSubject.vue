@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <input type="file" @change="uploadFile" ref="file" />
+    <input type="text"/>
     <button class="button" @click="submitFile">Send inn</button>
   </div>
 </template>

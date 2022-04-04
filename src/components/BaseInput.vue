@@ -2,7 +2,7 @@
 for alle deler av applikasjonen som trenger det. Dette hjelper for å holde det
 mer ryddig og ha en standar så alt blir likt gjennom hele -->
 <template>
-  <div class="container">
+  <div class="BaseInput">
     <label v-if="label" :for="uuid">
       {{ label }}
     </label>
@@ -54,9 +54,10 @@ export default {
 </script>
 <!--Styling for BaseInput -->
 <style scoped>
-.container {
+.BaseInput {
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 label {
   margin: 20px 10px 0 0;
@@ -72,5 +73,10 @@ input {
 }
 input:invalid {
   border-color: red;
+}
+@media screen and (max-width: 575px) {
+  input {
+    width: 200px;
+  }
 }
 </style>
