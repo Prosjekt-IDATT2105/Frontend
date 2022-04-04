@@ -8,7 +8,7 @@ Start developing on your own
 To get started developing further on QS yourself, you need to use Git to clone this repository.
 
 Requirements
-
+<br/>
 Git
 <br/>
 Vue

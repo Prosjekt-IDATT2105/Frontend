@@ -2,14 +2,13 @@
     <div class="StudentQueue">
         <div class="log">
             <h2>KØ</h2>
-            <h3 v-for="student in this.$store.getters.GET_STUDENTQUEUE.slice()"
+            <table v-for="student in this.$store.getters.GET_STUDENTQUEUE.slice()"
             v-bind:key="student">
                 {{ student.username }} {{ student.oving }} {{ student.location }} {{ student.Type }}
                 <br/>
                 <button id="HelpStudent">Hjelp Student</button>
-            </h3>        
+            </table>        
         </div>
-        <button class="Update" @click="getStudentsInQueue">Oppdater kø</button>
         <br/>
         <img src="@/assets/Bordplassering-2.jpg"/>
     </div>
@@ -40,12 +39,15 @@ export default {
               }
             });
         },
+    },
+    created: function() {
+        this.getStudentsInQueue();
     }
 }
 </script>
 <style scoped>
 .StudentQueue {
-    margin: 5px 0 0 10px;
+    margin: 5px 0 0 50px;
 }
 .Update {
     background-color: #424242;
@@ -72,14 +74,15 @@ img {
     max-width: 30%;
     max-height: 40%;
 }
-h3 {
+table {
     border: solid 2px #424242;
     padding: 2px 2px 5px 6px;
     width: 70%;
+    margin-bottom: 4px;
 }
 @media screen and (max-width: 575px){
-    .StudentQueue {
-    margin: 5px 0 0 10px;
+.StudentQueue {
+    margin: 5px 0 0 20px;
 }
 .Update {
     background-color: #424242;

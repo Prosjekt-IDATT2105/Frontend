@@ -1,14 +1,19 @@
 <template>
   <div class="container">
-    <input type="file" @change="uploadFile" ref="file" />
-    <input type="text"/>
+    <input type="file" @change="uploadFile" ref="file" id="File"/>
+    <base-input type="text" label="Emnenavn"/>
+    <base-input type="text" label="Emnekode"/>
     <button class="button" @click="submitFile">Send inn</button>
   </div>
 </template>
 <script>
 import axios from "axios";
+import BaseInput from "@/components/BaseInput.vue";
 
 export default {
+  components: {
+    BaseInput,
+  },
   data() {
     return {
       config: {
@@ -56,10 +61,15 @@ export default {
   color: #ffffff;
   width: 100px;
   margin-top: 15px;
+  align-self: center;
 }
 .button:hover {
   background-color: #01579b;
   cursor: pointer;
   transform: translateY(-1px);
+}
+#File {
+  align-self: center;
+  margin-top: 20px;
 }
 </style>

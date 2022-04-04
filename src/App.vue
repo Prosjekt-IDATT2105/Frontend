@@ -53,7 +53,7 @@ body {
   margin-left: 35%;
 }
 .studentbox-container {
-  justify-self: center;
+  align-content: center;
 }
 .User {
   height: 50px;
