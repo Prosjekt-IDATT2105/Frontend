@@ -49,7 +49,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 Future development
-
+<br/>
+In future development should the page for Lecturrer also be mobileresponsive, and make
+it possible for the lecturer to import a csv-file with students and add them to a new subject.
+For the student pages will furture work be made to communicate to the studentassistent pages sow the button for go
+to queue is disabled when the que is closed and activated when a studenassistent activates the queue.
+The application will also need future work on the page where students can se which asigments they miss and how many they 
+need to pass the subject. In the studentassistent future work will be made to make it possible to se which student that are getting help when multiple studentassistens work on the same queue. 
 
 
 Creating releases

@@ -1,3 +1,6 @@
+<!--Siden for forelesere/admin har tilgang til for å se hvilke emner som er aktive,
+og hvilke som er arkivert. her har de også mulighet til å gå til siden for å legge til nye emner. 
+Denne siden vil kreve videre jobbing med å hente opp både arkiverte fag og aktive fag.  -->
 <template>
     <div class="conatiner">
         <div class="header-top">
@@ -11,6 +14,7 @@
     </div>
 </template>
 <script>
+//Imports
 import AddSubject from "../Admin/AddSubject.vue";
 export default {
     components: {
@@ -18,6 +22,7 @@ export default {
     }
 }
 </script>
+<!--Styling for Lecturer -->
 <style scoped>
 .container {
     display: flex;

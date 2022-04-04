@@ -24,8 +24,9 @@ export default {
         }
     },
     methods: {
-       /**Metode for å sende studentene til siden hvor de kan registrere seg for
-        * å enten få hjelp eller få godkjent en øving */ 
+    /**Metode for der studenten skal ha mulighet til å slette seg fra køen hvis de 
+     * ikke ønsker å stå i kø lenger. Fikk ikke denne til å fungere, så dette er noe
+     * som må jobbes med på et senere tidspunkt */ 
     async onClick() {
         await axios
             .delete(
